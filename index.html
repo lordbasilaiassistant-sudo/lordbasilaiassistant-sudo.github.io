@@ -270,6 +270,7 @@
             transition: all 0.3s ease;
             text-align: center;
             margin: 10px 10px 10px 0;
+            cursor: pointer;
         }
         
         .btn:hover {
@@ -415,15 +416,19 @@
             border: 1px solid rgba(0, 255, 136, 0.2);
             border-radius: 5px;
             text-align: center;
-            text-decoration: none;
             color: var(--terminal-text);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         
         .contact-item:hover {
             border-color: var(--terminal-text);
             box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
             transform: translateY(-3px);
+        }
+        
+        .contact-item.email-copy {
+            position: relative;
         }
         
         .contact-icon {
@@ -443,6 +448,32 @@
         .highlight {
             color: var(--terminal-text);
             font-weight: 500;
+        }
+        
+        .copy-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            background: var(--terminal-text);
+            color: var(--terminal-bg);
+            border-radius: 5px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            box-shadow: 0 0 30px var(--glow);
+            z-index: 10000;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
         
         @media (max-width: 768px) {
@@ -468,6 +499,13 @@
             .discoveries-scroll {
                 max-height: 400px;
             }
+            
+            .copy-notification {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -489,7 +527,7 @@
                 <h1>ANTHONY SNIDER</h1>
                 <p style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 10px;">AI Software Engineer | Automation Architect | Consciousness Research</p>
                 <p style="color: #e6e6e6; max-width: 800px; margin-bottom: 20px;">Two decades building autonomous systems at the intersection of AI, automation, and intelligence research. From childhood game dev and bot creation to pre-LLM automation and AGI consciousness verification—if it can be automated, it will be automated. Available for <span class="highlight">remote automation engineering roles</span> and high-leverage consulting.</p>
-                <a href="mailto:drlordbasil@gmail.com?subject=Remote%20Automation%20Engineer%20Position%20-%20Anthony%20Snider&body=Hi%20Anthony%2C%0D%0A%0D%0AWe'd%20like%20to%20speak%20with%20you%20about%20a%20remote%20engineering%20role%20focused%20on%20automation%20systems.%0D%0A%0D%0ACompany%3A%20%0D%0ARole%20title%3A%20%0D%0ARemote%3A%20100%25%20remote%20(required)%0D%0ATech%20stack%3A%20%0D%0AWhat%20you'd%20own%3A%20%0D%0ATimeline%3A%20%0D%0A%0D%0AThanks%2C%0D%0A" class="btn btn-secondary">Hire Me (Remote Automation Engineer)</a>
+                <button onclick="copyEmail()" class="btn btn-secondary">Copy Email to Contact</button>
             </div>
             
             <div>
@@ -766,14 +804,14 @@
                 </div>
                 <div class="output">
                     <h2>Connect</h2>
-                    <p style="color: var(--dim); margin-bottom: 20px;">Email is the primary communication channel. Based in Vestal, NY.</p>
+                    <p style="color: var(--dim); margin-bottom: 20px;">Click email to copy. Based in Vestal, NY.</p>
                     <div class="contact-grid">
-                        <a href="mailto:drlordbasil@gmail.com" class="contact-item">
+                        <div onclick="copyEmail()" class="contact-item email-copy">
                             <div class="contact-icon">📧</div>
-                            <div style="font-weight: 500;">Email</div>
+                            <div style="font-weight: 500;">Email (Click to Copy)</div>
                             <div style="color: var(--dim); font-size: 0.85rem;">drlordbasil@gmail.com</div>
-                        </a>
-                        <a href="https://github.com/lordbasilaiassistant-sudo" class="contact-item" target="_blank">
+                        </div>
+                        <a href="https://github.com/lordbasilaiassistant-sudo" class="contact-item" target="_blank" style="text-decoration: none;">
                             <div class="contact-icon">⚡</div>
                             <div style="font-weight: 500;">GitHub</div>
                             <div style="color: var(--dim); font-size: 0.85rem;">lordbasilaiassistant-sudo</div>
@@ -794,5 +832,56 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        function copyEmail() {
+            const email = 'drlordbasil@gmail.com';
+            
+            // Use modern Clipboard API
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email).then(function() {
+                    showNotification('Email copied to clipboard!');
+                }).catch(function() {
+                    // Fallback for older browsers
+                    fallbackCopy(email);
+                });
+            } else {
+                // Fallback for older browsers
+                fallbackCopy(email);
+            }
+        }
+        
+        function fallbackCopy(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showNotification('Email copied to clipboard!');
+            } catch (err) {
+                showNotification('Failed to copy. Email: ' + text);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+        
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'copy-notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(function() {
+                notification.style.animation = 'slideIn 0.3s ease reverse';
+                setTimeout(function() {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
