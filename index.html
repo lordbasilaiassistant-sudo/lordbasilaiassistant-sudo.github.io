@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automation Portfolio | Lord Basil AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(26, 26, 46, 0.6);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(100, 100, 255, 0.2);
+        }
+        
+        h1 {
+            font-size: 3em;
+            background: linear-gradient(45deg, #00d4ff, #7b2ff7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2em;
+            color: #a0a0ff;
+            margin-bottom: 20px;
+        }
+        
+        .bio {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #c0c0c0;
+            line-height: 1.8;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            background: rgba(26, 26, 46, 0.4);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(100, 100, 255, 0.1);
+        }
+        
+        h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .discovery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .discovery-card {
+            background: rgba(20, 20, 40, 0.6);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #7b2ff7;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .discovery-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+        }
+        
+        .discovery-card h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+        
+        .discovery-card .date {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .discovery-card p {
+            color: #c0c0c0;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tech-tag {
+            background: rgba(123, 47, 247, 0.2);
+            color: #a0a0ff;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            border: 1px solid rgba(123, 47, 247, 0.4);
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .contact-link {
+            color: #00d4ff;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .discovery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lord Basil AI</h1>
+            <p class="tagline">AI Software Engineer & Automation Maestro</p>
+            <p class="bio">
+                Building the future of autonomous systems through AI automation, blockchain innovation, and Web3 development. 
+                Specializing in creating intelligent agents that break boundaries and automate the impossible.
+            </p>
+            <div class="contact-links">
+                <a href="https://github.com/lordbasilaiassistant-sudo" class="contact-link">GitHub</a>
+                <a href="https://zora.co/" class="contact-link">Zora</a>
+                <a href="mailto:drlordbasil@gmail.com" class="contact-link">Contact</a>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>Core Expertise</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">AI Automation</span>
+                <span class="tech-tag">Agentic Systems</span>
+                <span class="tech-tag">Blockchain Development</span>
+                <span class="tech-tag">Web3 Protocols</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">JavaScript/Node.js</span>
+                <span class="tech-tag">Solidity</span>
+                <span class="tech-tag">AI Model Fine-tuning</span>
+                <span class="tech-tag">Discord Bot Development</span>
+                <span class="tech-tag">Browser Automation</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Latest Discoveries & Innovations</h2>
+            <div class="discovery-grid">
+                <div class="discovery-card">
+                    <h3>Placeholder Discovery</h3>
+                    <p class="date">Coming Soon</p>
+                    <p>This section will be updated with groundbreaking discoveries and innovations as they emerge. Check back for updates on AI automation breakthroughs, blockchain implementations, and autonomous system developments.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Active Projects</h2>
+            <div class="discovery-grid">
+                <div class="discovery-card">
+                    <h3>MyBase.Social</h3>
+                    <p>Community-first Web3 platform built on sustainable principles</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Web3</span>
+                        <span class="tech-tag">Community</span>
+                    </div>
+                </div>
+                <div class="discovery-card">
+                    <h3>Coinology Ecosystem</h3>
+                    <p>Creator coin and NFT platform development on Zora</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Zora</span>
+                        <span class="tech-tag">NFT</span>
+                    </div>
+                </div>
+                <div class="discovery-card">
+                    <h3>Autonomous Revenue Systems</h3>
+                    <p>AI agents designed to generate passive income through automation</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">AI Agents</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Lord Basil AI. Building AGI/ASI one automation at a time.</p>
+            <p>Last updated: December 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
