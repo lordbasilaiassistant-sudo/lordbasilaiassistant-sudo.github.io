@@ -309,6 +309,91 @@
             border-bottom: none;
         }
         
+        /* Services/Pricing Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: height 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            height: 6px;
+        }
+        
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 255, 136, 0.15);
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--secondary);
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 10px;
+        }
+        
+        .service-price-note {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .service-card p {
+            color: var(--text);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .service-features {
+            list-style: none;
+        }
+        
+        .service-features li {
+            color: var(--text);
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
         /* Projects Grid */
         .projects-grid {
             display: grid;
@@ -496,7 +581,8 @@
             }
             
             .projects-grid,
-            .skills-grid {
+            .skills-grid,
+            .services-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -535,7 +621,7 @@
                 blockchain innovation, and high-leverage systems that turn time into compounding output.
             </p>
             <div class="cta-buttons">
-                <a href="https://github.com/lordbasilaiassistant-sudo" class="btn btn-primary" target="_blank">View GitHub</a>
+                <a href="#services" class="btn btn-primary">View Services</a>
                 <a href="mailto:drlordbasil@gmail.com" class="btn btn-secondary">Get In Touch</a>
             </div>
         </section>
@@ -568,6 +654,53 @@
                 that's just another problem to solve. Building AGI/ASI isn't a dream—it's a relentless pursuit.
             </div>
         </div>
+        
+        <!-- Services & Pricing -->
+        <section id="services">
+            <div class="section-header">
+                <h2>SERVICES & PRICING</h2>
+                <p>Expert-level AI automation and systems design on demand</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Consultations</h3>
+                    <div class="service-price">$50<span style="font-size: 1.2rem; color: var(--text-dim);">/hour</span></div>
+                    <p class="service-price-note">One-on-one technical guidance</p>
+                    <p>
+                        Deep-dive strategic consulting on AI automation, agentic systems, and high-leverage 
+                        architecture. Get expert guidance on complex technical challenges.
+                    </p>
+                    <ul class="service-features">
+                        <li>AI automation strategy</li>
+                        <li>System architecture review</li>
+                        <li>Technical problem-solving</li>
+                        <li>Tool & platform selection</li>
+                        <li>Best practices & optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Project Development</h3>
+                    <div class="service-price">$50<span style="font-size: 1.2rem; color: var(--text-dim);">/hour</span></div>
+                    <p class="service-price-note">4-hour minimum engagement</p>
+                    <p>
+                        Custom automation systems, AI agents, and full-stack solutions. From concept to 
+                        deployment, building production-ready systems that scale.
+                    </p>
+                    <ul class="service-features">
+                        <li>AI agent development</li>
+                        <li>Automation pipeline design</li>
+                        <li>API integration & orchestration</li>
+                        <li>Discord bot development</li>
+                        <li>End-to-end system delivery</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background: rgba(0, 255, 136, 0.05); border-radius: 10px; border: 1px solid rgba(0, 255, 136, 0.2);">
+                <p style="color: var(--text); font-size: 1.1rem; margin-bottom: 15px;">Ready to build something impossible?</p>
+                <a href="mailto:drlordbasil@gmail.com" class="btn btn-primary">Contact via Email</a>
+            </div>
+        </section>
         
         <!-- Skills -->
         <section id="skills">
@@ -695,18 +828,18 @@
         <section id="contact">
             <div class="section-header">
                 <h2>CONNECT</h2>
-                <p>Collaborate, network, or just say hello</p>
+                <p>Email is the only way to reach me directly</p>
             </div>
             <div class="contact-grid">
-                <a href="https://github.com/lordbasilaiassistant-sudo" class="contact-card" target="_blank">
-                    <div class="contact-icon">⚡</div>
-                    <h3>GitHub</h3>
-                    <p>lordbasilaiassistant-sudo</p>
-                </a>
                 <a href="mailto:drlordbasil@gmail.com" class="contact-card">
                     <div class="contact-icon">📧</div>
                     <h3>Email</h3>
                     <p>drlordbasil@gmail.com</p>
+                </a>
+                <a href="https://github.com/lordbasilaiassistant-sudo" class="contact-card" target="_blank">
+                    <div class="contact-icon">⚡</div>
+                    <h3>GitHub</h3>
+                    <p>lordbasilaiassistant-sudo</p>
                 </a>
                 <div class="contact-card">
                     <div class="contact-icon">📍</div>
