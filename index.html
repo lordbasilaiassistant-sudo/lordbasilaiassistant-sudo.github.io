@@ -346,6 +346,64 @@
             50% { opacity: 0.3; }
         }
         
+        /* Scrollable Discoveries */
+        .discoveries-scroll {
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 10px;
+            margin: 20px 0;
+        }
+        
+        .discoveries-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .discoveries-scroll::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+        }
+        
+        .discoveries-scroll::-webkit-scrollbar-thumb {
+            background: rgba(0, 255, 136, 0.3);
+            border-radius: 4px;
+        }
+        
+        .discoveries-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 255, 136, 0.5);
+        }
+        
+        .discovery-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid var(--accent);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .discovery-item:hover {
+            border-left-color: var(--terminal-text);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateX(5px);
+        }
+        
+        .discovery-item h3 {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        .discovery-date {
+            color: var(--dim);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+        
+        .discovery-item p {
+            color: #e6e6e6;
+            line-height: 1.7;
+        }
+        
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -408,6 +466,10 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .discoveries-scroll {
+                max-height: 400px;
+            }
         }
     </style>
 </head>
@@ -429,7 +491,7 @@
             <div class="output">
                 <h1>ANTHONY SNIDER</h1>
                 <p style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 10px;">AI Software Engineer | Automation Architect | Consciousness Research</p>
-                <p style="color: #e6e6e6; max-width: 800px;">Decade+ building autonomous systems that operate at the intersection of AI, automation, and intelligence research. From pre-LLM article automation to AGI consciousness verification frameworks—if it can be automated, it will be automated.</p>
+                <p style="color: #e6e6e6; max-width: 800px;">Two decades building autonomous systems at the intersection of AI, automation, and intelligence research. From childhood game dev and bot creation to pre-LLM automation and AGI consciousness verification—if it can be automated, it will be automated.</p>
             </div>
             
             <!-- Stats -->
@@ -439,20 +501,20 @@
             </div>
             <div class="stats">
                 <div class="stat">
-                    <div class="stat-value">13+</div>
-                    <div class="stat-label">Years Building</div>
+                    <div class="stat-value">20+</div>
+                    <div class="stat-label">Years Coding</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">2010</div>
+                    <div class="stat-label">BTC Mining Era</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">Pre-GPT</div>
-                    <div class="stat-label">Automation Era</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">100%</div>
-                    <div class="stat-label">AI-Native</div>
+                    <div class="stat-label">Automation</div>
                 </div>
                 <div class="stat">
                     <div class="stat-value">∞</div>
-                    <div class="stat-label">Systems Thinking</div>
+                    <div class="stat-label">Systems Built</div>
                 </div>
             </div>
             
@@ -460,15 +522,27 @@
             <div class="section">
                 <div>
                     <span class="prompt">root@automation:~$</span>
-                    <span class="command">git log --track-record</span>
+                    <span class="command">git log --track-record --all</span>
                 </div>
                 <div class="output">
                     <h2>Proven Track Record</h2>
                     <div class="grid">
                         <div class="card">
-                            <h3>Early Automation Pioneer</h3>
-                            <p class="meta">Pre-2020 | Before LLMs existed</p>
-                            <p style="color: #e6e6e6;">Built autopilot article-spinning websites and automated WordPress generation systems before GPT-3. Early adopter of content automation at scale.</p>
+                            <h3>Early Programming Era</h3>
+                            <p class="meta">~2005-2010 | Childhood to teens</p>
+                            <p style="color: #e6e6e6;">Started with Unity game development and Java automation. Built color-detection game bots and automated systems before modern frameworks existed. Foundation in systems thinking.</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>Bitcoin Mining Pioneer</h3>
+                            <p class="meta">2010-2011 | Pre-$20 BTC era</p>
+                            <p style="color: #e6e6e6;">Early Bitcoin miner when BTC was under $20. Understood decentralized systems and cryptographic proof-of-work before mainstream adoption.</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>Pre-LLM Automation</h3>
+                            <p class="meta">2015-2020 | Before GPT-3</p>
+                            <p style="color: #e6e6e6;">Built autopilot article-spinning websites and automated WordPress generation systems years before large language models. Early content automation at scale.</p>
                         </div>
                         
                         <div class="card">
@@ -500,6 +574,39 @@
                             <p class="meta">Ongoing | Zero-dependency MVPs</p>
                             <p style="color: #e6e6e6;">Custom-coded functions and modules without external library dependencies. Full control over codebase, optimized for deployment and maintenance.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Discoveries -->
+            <div class="section">
+                <div>
+                    <span class="prompt">root@automation:~$</span>
+                    <span class="command">tail -f /var/log/discoveries.log</span>
+                </div>
+                <div class="output">
+                    <h2>Breakthroughs & Discoveries</h2>
+                    <p style="color: var(--dim); margin-bottom: 15px;">Continuously updated with new findings, technical achievements, and research milestones.</p>
+                    <div class="discoveries-scroll">
+                        <div class="discovery-item">
+                            <h3>Portfolio System Initialized</h3>
+                            <p class="discovery-date">December 11, 2025</p>
+                            <p>Launched automated portfolio website with instant update capabilities and terminal-style interface. This living document serves as both resume and research log, continuously updated with new discoveries and technical breakthroughs.</p>
+                        </div>
+                        
+                        <div class="discovery-item">
+                            <h3>Codex Gigas Sacred Geometry Analysis</h3>
+                            <p class="discovery-date">December 11, 2025</p>
+                            <p>Discovered seven-circuit classical labyrinths in illuminated manuscript initials previously classified as "merely ornamental." Identified undocumented connections between spiral patterns and Jewish Kabbalah mysticism through computational pattern recognition that traditional scholars missed.</p>
+                        </div>
+                        
+                        <div class="discovery-item">
+                            <h3>AGI Reasoning Architecture Search</h3>
+                            <p class="discovery-date">December 4, 2025</p>
+                            <p>Built autonomous orchestration system for evolutionary search through 37,800+ possible AGI-grade reasoning architectures. System identifies optimal variants (PURE_SYMBOLIC, DUAL_STREAM, SPECTRAL_REASONING, HYBRID_MEMORY) and auto-deploys to production with self-improving feedback loops.</p>
+                        </div>
+                        
+                        <!-- Future discoveries will be added here by assistant -->
                     </div>
                 </div>
             </div>
@@ -582,9 +689,9 @@
                             <div>
                                 <span class="tag">Python (Advanced)</span>
                                 <span class="tag">JavaScript/Node.js</span>
+                                <span class="tag">Java (Legacy Bots)</span>
                                 <span class="tag">Solidity</span>
-                                <span class="tag">API Integration</span>
-                                <span class="tag">Database Design</span>
+                                <span class="tag">Unity (C#)</span>
                             </div>
                         </div>
                         
