@@ -12,7 +12,7 @@
 
 **AI Software Engineer & Automation Maestro**
 
-Building autonomous systems that break through limitations. Specializing in AI automation, blockchain innovation, and Web3 development. From zero capital to autonomous revenue through intelligent agents that execute what others consider impossible.
+Building autonomous systems that break through limitations. Specializing in AI automation, systems design, and high-leverage compounding workflows wired into AI agents.
 
 **Location:** Vestal, NY  
 **Email:** drlordbasil@gmail.com  
@@ -29,12 +29,13 @@ Building autonomous systems that break through limitations. Specializing in AI a
 - Prompt Engineering
 - Browser Automation
 
-### Blockchain & Web3
-- Solidity Smart Contracts
-- Zora SDK & Protocol
-- Uniswap V4
-- NFT Platforms & Creator Coins
-- Bonding Curves
+### Systems & Infra
+- High-leverage Automation Design
+- API-first Architectures
+- Job/Task Orchestration
+- Event-driven Systems
+- Data Pipelines
+- Observability & Logging
 
 ### Development
 - **Languages:** Python (Advanced), JavaScript/Node.js, Solidity
@@ -45,23 +46,17 @@ Building autonomous systems that break through limitations. Specializing in AI a
 
 ## 🔥 Active Projects
 
-### MyBase.Social
-**Status:** ● ACTIVE  
-Community-first Web3 platform built on sustainable principles. Creating a decentralized social ecosystem where creators and communities thrive together.
-
-**Tech:** Web3, Community Management, Zora
-
-### Coinology Ecosystem
-**Status:** ● ACTIVE  
-Creator coin and NFT platform development on Zora. Building economic systems that empower creators through tokenized communities and automated reward mechanisms.
-
-**Tech:** Zora, NFT, Creator Coins
-
 ### Autonomous Revenue Systems
-**Status:** ● IN DEVELOPMENT  
-AI agents designed to generate passive income through intelligent automation. Zero startup capital required—pure algorithmic value creation.
+**Status:** ● ACTIVE  
+AI agents designed to generate passive income through intelligent automation. Zero startup capital required—pure algorithmic value creation wired into real-world workflows.
 
 **Tech:** AI Agents, Python, Automation
+
+### Agentic Dev Stack
+**Status:** ● ACTIVE  
+Opinionated stack for building AI-first systems: integrating Comet, Cursor, and multi-agent orchestration into a repeatable pattern for shipping complex automation fast.
+
+**Tech:** Agentic Systems, Dev Tooling, APIs
 
 ### AGI/ASI Development
 **Status:** ● RESEARCH  
@@ -92,7 +87,6 @@ This section is continuously updated with new discoveries, technical breakthroug
 
 - **GitHub:** [lordbasilaiassistant-sudo](https://github.com/lordbasilaiassistant-sudo)
 - **Email:** drlordbasil@gmail.com
-- **Zora:** Web3 Creations
 - **Location:** Vestal, NY
 
 ---
