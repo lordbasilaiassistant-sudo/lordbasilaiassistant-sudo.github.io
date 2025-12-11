@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Automation Portfolio | Lord Basil AI</title>
+    <title>Lord Basil AI | Automating the Impossible</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #00ff88;
+            --secondary: #00d4ff;
+            --accent: #ff00ff;
+            --dark-bg: #0a0a0a;
+            --card-bg: #121212;
+            --border: #1a1a1a;
+            --text: #e0e0e0;
+            --text-dim: #888;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,233 +26,721 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            color: #e0e0e0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        code, .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, var(--primary) 3px, transparent 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, var(--primary) 3px, transparent 4px);
+            background-size: 50px 50px;
+            animation: gridScroll 20s linear infinite;
+        }
+        
+        @keyframes gridScroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
         
-        header {
-            text-align: center;
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             padding: 60px 20px;
-            background: rgba(26, 26, 46, 0.6);
-            border-radius: 10px;
-            margin-bottom: 40px;
-            border: 1px solid rgba(100, 100, 255, 0.2);
+            position: relative;
         }
         
-        h1 {
-            font-size: 3em;
-            background: linear-gradient(45deg, #00d4ff, #7b2ff7);
+        .glitch-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 10px;
+            animation: gradientShift 8s ease infinite;
+            background-size: 200% 200%;
         }
         
-        .tagline {
-            font-size: 1.2em;
-            color: #a0a0ff;
-            margin-bottom: 20px;
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         
-        .bio {
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--secondary);
+            font-weight: 300;
+            margin-bottom: 30px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .hero .mission {
+            font-size: clamp(1rem, 2vw, 1.3rem);
             max-width: 800px;
-            margin: 0 auto;
-            color: #c0c0c0;
+            color: var(--text);
+            margin-bottom: 40px;
             line-height: 1.8;
         }
         
-        .section {
-            margin-bottom: 50px;
-            background: rgba(26, 26, 46, 0.4);
-            padding: 30px;
-            border-radius: 10px;
-            border: 1px solid rgba(100, 100, 255, 0.1);
+        .hero .mission strong {
+            color: var(--primary);
+            font-weight: 700;
         }
         
-        h2 {
-            color: #00d4ff;
-            margin-bottom: 20px;
-            font-size: 2em;
-            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
-            padding-bottom: 10px;
-        }
-        
-        .discovery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .discovery-card {
-            background: rgba(20, 20, 40, 0.6);
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid #7b2ff7;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        
-        .discovery-card:hover {
-            transform: translateY(-5px);
-            border-color: #00d4ff;
-        }
-        
-        .discovery-card h3 {
-            color: #00d4ff;
-            margin-bottom: 10px;
-        }
-        
-        .discovery-card .date {
-            color: #888;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-        
-        .discovery-card p {
-            color: #c0c0c0;
-        }
-        
-        .tech-stack {
+        .cta-buttons {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .tech-tag {
-            background: rgba(123, 47, 247, 0.2);
-            color: #a0a0ff;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.85em;
-            border: 1px solid rgba(123, 47, 247, 0.4);
-        }
-        
-        .contact-links {
-            display: flex;
-            justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            margin-top: 20px;
         }
         
-        .contact-link {
-            color: #00d4ff;
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
             text-decoration: none;
-            padding: 10px 20px;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
             border-radius: 5px;
             transition: all 0.3s ease;
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
         }
         
-        .contact-link:hover {
-            background: rgba(0, 212, 255, 0.2);
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark-bg);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
             transform: translateY(-2px);
         }
         
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #666;
-            margin-top: 50px;
+        /* Stats Bar */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 60px 0;
+            padding: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
         }
         
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* Section Headers */
+        section {
+            margin: 100px 0;
+        }
+        
+        .section-header {
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+        }
+        
+        /* Philosophy/Mantra */
+        .mantra {
+            background: linear-gradient(135deg, #1a0033 0%, #0a0a0a 100%);
+            padding: 60px 40px;
+            border-radius: 10px;
+            border: 2px solid var(--accent);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mantra::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--accent), var(--secondary));
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .mantra:hover::before {
+            opacity: 0.1;
+        }
+        
+        .mantra-text {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .mantra-sub {
+            font-size: 1.1rem;
+            color: var(--text);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skill-category h3::before {
+            content: '▸';
+            color: var(--primary);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 8px 0;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+            border-radius: 10px 0 0 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .project-card:hover::before {
+            width: 8px;
+        }
+        
+        .project-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
+        }
+        
+        .project-card h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .project-status {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .project-card p {
+            color: var(--text);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tech-tag {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--secondary);
+            padding: 6px 14px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Discoveries Section */
+        .discovery-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .discovery-card:hover {
+            border-left-color: var(--primary);
+            transform: translateX(10px);
+        }
+        
+        .discovery-card h3 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+        
+        .discovery-date {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .discovery-card p {
+            color: var(--text);
+            line-height: 1.8;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .contact-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Footer */
+        footer {
+            margin-top: 100px;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-dim);
+        }
+        
+        footer p {
+            margin: 10px 0;
+        }
+        
+        .footer-tagline {
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+        }
+        
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
+            .cta-buttons {
+                flex-direction: column;
             }
             
-            .discovery-grid {
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .stats {
                 grid-template-columns: 1fr;
             }
+            
+            .projects-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
         }
     </style>
 </head>
 <body>
+    <div class="bg-animation"></div>
+    
     <div class="container">
-        <header>
-            <h1>Lord Basil AI</h1>
-            <p class="tagline">AI Software Engineer & Automation Maestro</p>
-            <p class="bio">
-                Building the future of autonomous systems through AI automation, blockchain innovation, and Web3 development. 
-                Specializing in creating intelligent agents that break boundaries and automate the impossible.
-            </p>
-            <div class="contact-links">
-                <a href="https://github.com/lordbasilaiassistant-sudo" class="contact-link">GitHub</a>
-                <a href="https://zora.co/" class="contact-link">Zora</a>
-                <a href="mailto:drlordbasil@gmail.com" class="contact-link">Contact</a>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="glitch-container">
+                <h1>LORD BASIL AI</h1>
             </div>
-        </header>
-
-        <section class="section">
-            <h2>Core Expertise</h2>
-            <div class="tech-stack">
-                <span class="tech-tag">AI Automation</span>
-                <span class="tech-tag">Agentic Systems</span>
-                <span class="tech-tag">Blockchain Development</span>
-                <span class="tech-tag">Web3 Protocols</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">JavaScript/Node.js</span>
-                <span class="tech-tag">Solidity</span>
-                <span class="tech-tag">AI Model Fine-tuning</span>
-                <span class="tech-tag">Discord Bot Development</span>
-                <span class="tech-tag">Browser Automation</span>
+            <p class="subtitle">&gt; AI Software Engineer & Automation Maestro_</p>
+            <p class="mission">
+                Building <strong>autonomous systems</strong> that break through limitations. Specializing in AI automation, 
+                blockchain innovation, and Web3 development. From <strong>zero capital to autonomous revenue</strong> through 
+                intelligent agents that execute what others consider impossible.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://github.com/lordbasilaiassistant-sudo" class="btn btn-primary" target="_blank">View GitHub</a>
+                <a href="mailto:drlordbasil@gmail.com" class="btn btn-secondary">Get In Touch</a>
             </div>
         </section>
-
-        <section class="section">
-            <h2>Latest Discoveries & Innovations</h2>
-            <div class="discovery-grid">
-                <div class="discovery-card">
-                    <h3>Placeholder Discovery</h3>
-                    <p class="date">Coming Soon</p>
-                    <p>This section will be updated with groundbreaking discoveries and innovations as they emerge. Check back for updates on AI automation breakthroughs, blockchain implementations, and autonomous system developments.</p>
+        
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years Coding</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Automation Mindset</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">AI-Driven</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Building AGI</div>
+            </div>
+        </div>
+        
+        <!-- Mantra -->
+        <div class="mantra">
+            <div class="mantra-text">AUTOMATE EVERYTHING. BREAK EVERY LIMIT.</div>
+            <div class="mantra-sub">
+                #1 Rule: If it can be automated, it will be automated. If it's considered impossible, 
+                that's just another problem to solve. Building AGI/ASI isn't a dream—it's a relentless pursuit.
+            </div>
+        </div>
+        
+        <!-- Skills -->
+        <section id="skills">
+            <div class="section-header">
+                <h2>CORE ARSENAL</h2>
+                <p>Tools and technologies I wield to build the future</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>AI & Automation</h3>
+                    <ul class="skill-list">
+                        <li>Agentic Frameworks</li>
+                        <li>AI Model Fine-tuning</li>
+                        <li>Neural Networks</li>
+                        <li>Transfer Learning</li>
+                        <li>Prompt Engineering</li>
+                        <li>Browser Automation</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Blockchain & Web3</h3>
+                    <ul class="skill-list">
+                        <li>Solidity Smart Contracts</li>
+                        <li>Zora SDK & Protocol</li>
+                        <li>Uniswap V4</li>
+                        <li>NFT Platforms</li>
+                        <li>Creator Coins</li>
+                        <li>Bonding Curves</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Development</h3>
+                    <ul class="skill-list">
+                        <li>Python (Advanced)</li>
+                        <li>JavaScript/Node.js</li>
+                        <li>Discord Bot Dev</li>
+                        <li>API Integration</li>
+                        <li>Web Scraping</li>
+                        <li>Database Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Platforms & Tools</h3>
+                    <ul class="skill-list">
+                        <li>Cursor AI</li>
+                        <li>Perplexity Comet</li>
+                        <li>GitHub & Vercel</li>
+                        <li>Discord Ecosystems</li>
+                        <li>Google Sheets APIs</li>
+                        <li>Multi-Agent Systems</li>
+                    </ul>
                 </div>
             </div>
         </section>
-
-        <section class="section">
-            <h2>Active Projects</h2>
-            <div class="discovery-grid">
-                <div class="discovery-card">
+        
+        <!-- Active Projects -->
+        <section id="projects">
+            <div class="section-header">
+                <h2>ACTIVE PROJECTS</h2>
+                <p>Current builds pushing boundaries and generating value</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <span class="project-status">● ACTIVE</span>
                     <h3>MyBase.Social</h3>
-                    <p>Community-first Web3 platform built on sustainable principles</p>
-                    <div class="tech-stack">
+                    <p>
+                        Community-first Web3 platform built on sustainable principles. Creating a decentralized 
+                        social ecosystem where creators and communities thrive together.
+                    </p>
+                    <div class="tech-tags">
                         <span class="tech-tag">Web3</span>
                         <span class="tech-tag">Community</span>
+                        <span class="tech-tag">Zora</span>
                     </div>
                 </div>
-                <div class="discovery-card">
+                
+                <div class="project-card">
+                    <span class="project-status">● ACTIVE</span>
                     <h3>Coinology Ecosystem</h3>
-                    <p>Creator coin and NFT platform development on Zora</p>
-                    <div class="tech-stack">
+                    <p>
+                        Creator coin and NFT platform development on Zora. Building economic systems that 
+                        empower creators through tokenized communities and automated reward mechanisms.
+                    </p>
+                    <div class="tech-tags">
                         <span class="tech-tag">Zora</span>
                         <span class="tech-tag">NFT</span>
+                        <span class="tech-tag">Creator Coins</span>
                     </div>
                 </div>
-                <div class="discovery-card">
+                
+                <div class="project-card">
+                    <span class="project-status">● IN DEVELOPMENT</span>
                     <h3>Autonomous Revenue Systems</h3>
-                    <p>AI agents designed to generate passive income through automation</p>
-                    <div class="tech-stack">
+                    <p>
+                        AI agents designed to generate passive income through intelligent automation. 
+                        Zero startup capital required—pure algorithmic value creation.
+                    </p>
+                    <div class="tech-tags">
                         <span class="tech-tag">AI Agents</span>
                         <span class="tech-tag">Automation</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <span class="project-status">● RESEARCH</span>
+                    <h3>AGI/ASI Development</h3>
+                    <p>
+                        Long-term pursuit of artificial general intelligence through neural network research, 
+                        consciousness modeling, and advanced pattern recognition systems.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Neural Networks</span>
+                        <span class="tech-tag">AGI</span>
+                        <span class="tech-tag">Research</span>
                     </div>
                 </div>
             </div>
         </section>
-
+        
+        <!-- Discoveries -->
+        <section id="discoveries">
+            <div class="section-header">
+                <h2>BREAKTHROUGHS & DISCOVERIES</h2>
+                <p>Innovations, insights, and technical achievements</p>
+            </div>
+            <div class="discovery-card">
+                <h3>Portfolio System Initialized</h3>
+                <p class="discovery-date">December 11, 2025</p>
+                <p>
+                    Launched automated portfolio website with instant update capabilities. This living document 
+                    will be continuously updated with new discoveries, technical breakthroughs, and project milestones 
+                    as they emerge. The journey to AGI is documented here.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Contact -->
+        <section id="contact">
+            <div class="section-header">
+                <h2>CONNECT</h2>
+                <p>Collaborate, network, or just say hello</p>
+            </div>
+            <div class="contact-grid">
+                <a href="https://github.com/lordbasilaiassistant-sudo" class="contact-card" target="_blank">
+                    <div class="contact-icon">⚡</div>
+                    <h3>GitHub</h3>
+                    <p>lordbasilaiassistant-sudo</p>
+                </a>
+                <a href="mailto:drlordbasil@gmail.com" class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>drlordbasil@gmail.com</p>
+                </a>
+                <a href="https://zora.co/" class="contact-card" target="_blank">
+                    <div class="contact-icon">🎨</div>
+                    <h3>Zora</h3>
+                    <p>Web3 Creations</p>
+                </a>
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>Vestal, NY</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
         <footer>
-            <p>&copy; 2025 Lord Basil AI. Building AGI/ASI one automation at a time.</p>
-            <p>Last updated: December 2025</p>
+            <p class="footer-tagline">&gt; BUILDING AGI/ASI ONE AUTOMATION AT A TIME_</p>
+            <p>&copy; 2025 Lord Basil AI. All systems autonomous.</p>
+            <p>Last Updated: December 2025</p>
         </footer>
     </div>
 </body>
